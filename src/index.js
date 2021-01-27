@@ -1,6 +1,9 @@
 //Temperature //
 
 function currentWeather(response) {
+let cityElement= document.querySelector("#city");
+cityElement.innerHTML= response.data.name;
+
 let h1= document.querySelector("#mainTemp");
 let temp= Math.round(response.data.main.temp);
 h1.innerHTML=  `${temp}`;
@@ -61,6 +64,10 @@ function searchLocation(event){
 
 let locationButton= document.querySelector("#locationButton");
 locationButton.addEventListener("click", searchLocation);
+
+//background color
+
+
 
 
 // Today's date
