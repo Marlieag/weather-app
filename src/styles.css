@@ -15,11 +15,21 @@ h1 {
 }
 .search-bar {
   margin-top: 20px;
-  margin-bottom: 10px;
-  padding: 10px;
+  margin-bottom: 0px;
+  padding: 10px 0px 10px 10px;
 }
+.col-3 {
+  position: relative;
+  left: -15px;
+}
+
 .col-1 {
   padding: 0%;
+  position: relative;
+  left: -24px;
+}
+.col-7 {
+  text-align: left;
 }
 .dayTemp {
   text-align: right;
@@ -33,7 +43,7 @@ h1 {
 }
 .mainTemp {
   position: relative;
-  right: -28px;
+  right: -20px;
 }
 .convert {
   font-size: small;
