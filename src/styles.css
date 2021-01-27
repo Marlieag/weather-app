@@ -1,6 +1,18 @@
 .container {
-  color: #7c7c7c;
-  background-image: url("");
+  color: #ffffff;
+  background-image: linear-gradient(to left, #bdbbbe 0%, #9d9ea3 100%),
+    radial-gradient(
+      88% 271%,
+      rgba(255, 255, 255, 0.25) 0%,
+      rgba(254, 254, 254, 0.25) 1%,
+      rgba(0, 0, 0, 0.25) 100%
+    ),
+    radial-gradient(
+      50% 100%,
+      rgba(255, 255, 255, 0.3) 0%,
+      rgba(0, 0, 0, 0.3) 100%
+    );
+  background-blend-mode: normal, lighten, soft-light;
   border-radius: 20px;
   margin: auto 20px 0px;
   max-width: 430px;
@@ -42,7 +54,7 @@ h1 {
 }
 .mainTemp {
   position: relative;
-  right: -20px;
+  right: -30px;
 }
 .convert {
   font-size: small;
@@ -72,7 +84,9 @@ h5 {
   font-size: 15px;
 }
 .week {
-  margin: 0px 0px 20px;
+  color: #9d9ea3;
+  margin-bottom: 0px;
+  padding-bottom: 10px;
 }
 
 .source-code {
