@@ -29,22 +29,22 @@ wind.innerHTML= `Wind Speed: ${windSpeed}mph`;
 
 
 // Search engine
-
-function search(event) {
-  event.preventDefault();
-   
-  let searchBox= document.querySelector("#search-input");
-  let currentCity= document.querySelector("#currentCity");
-  let city= searchBox.value;
-  currentCity.innerHTML= `${city}`;
-
+function searchCity(city){
   let key="752caa80f650691fadd3574c96f9f105";
   let url=`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${key}&units=metric`;
   axios.get(`${url}`).then(currentWeather);
 }
 
-let searchInput= document.querySelector("#search-city");
+function search(event) {
+  event.preventDefault();
+  let city= document.querySelector("#search-input").value;
+ searchCity(city);
+}
+ 
+let searchInput= document.querySelector("#search-bar");
 searchInput.addEventListener("submit", search);
+
+searchCity("Denver");
 
 //Location
 
