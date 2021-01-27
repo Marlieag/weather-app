@@ -27,19 +27,9 @@ wind.innerHTML= `Wind Speed: ${windSpeed}mph`;
  console.log(response);
 }
 
-//Location
-
-function getLocation(position){
-  let latitude= position.coords.latitude;
-  let longitude= position.coords.longitude;
-  let key="752caa80f650691fadd3574c96f9f105";
-  let url=`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${key}&units=metric`;
-  axios.get(`${url}`).then(currentWeather);
-
-}
-navigator.geolocation.getCurrentPosition(getLocation);
 
 // Search engine
+
 function search(event) {
   event.preventDefault();
    
@@ -55,6 +45,22 @@ function search(event) {
 
 let searchInput= document.querySelector("#search-city");
 searchInput.addEventListener("submit", search);
+
+//Location
+
+function getLocation(position){
+  let key="752caa80f650691fadd3574c96f9f105";
+  let url=`https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${key}&units=metric`;
+  axios.get(`${url}`).then(currentWeather);
+
+}
+function searchLocation(event){
+  event.preventDefault();
+  navigator.geolocation.getCurrentPosition(getLocation);
+}
+
+let locationButton= document.querySelector("#locationButton");
+locationButton.addEventListener("click", searchLocation);
 
 
 // Today's date
