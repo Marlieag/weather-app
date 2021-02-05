@@ -40,18 +40,20 @@
     </div>
      </form> 
   
-  <h6>
+  <h4>
     <figure class="text-center">
+    <span class="date">
       <div class="row">
         <div class="col-5" id="today-date">
-          Today, Dec 28, 2020
+         Today, Dec 28, 2020
         </div>
         <div class="col-7" id="current-time">
           10:00 A.M.
         </div>
+        </span>
       </div>
     </figure>
-  </h6>
+  </h4>
 
   <h1 id="city">
     
@@ -61,11 +63,11 @@
       <div class="row">
         <div class="col">
           <div class= "dayTemp">
-     <h4>
+     <h3>
        High 
     <br/>
       <span id="high">°</span>
-      </h4>
+      </h3>
       </div>
       </div>
       <div class="col-5">
@@ -80,58 +82,73 @@
             <span class="fTemp" id="f-convert"><a href="#">|°F</a></span>
           </span>
          </h1>
-        <h4>Cloudy</h4>  
+        <h2>Cloudy</h2>  
       </div>
 
       <div class="col">
         <div class= "dayTemp2">
-        <h4>Low
+        <h3>Low
        <br/>
         <span id="low">°</span>
-       </h4>
+       </h3>
       </div>
       </div>
       </div>
       </figure>
   
 <div class="details">
-  <div class="row justify-content-md-center">
-    <div class="col-3 m-2">
-      <div class="card" style="width: 8rem; height: 65%;">
-        <div class="card-body">
-          <h5 class="card-title" id="currentH">
-       <strong>Humidity:</strong>
-          </h5>
-       </div>
-     </div>
+ 
+  <div class="row g-1">
+    <div class="card-group">
+    <div class="col-3">
+        <div class="card h-100 text-white bg-transparent" style="width: 6rem;">
+          <div class="card-body">
+      <h6 class="card-title text-start" id="feels">
+        Feels Like:
+      </h6>
+    </div>
+    </div>
     </div>
 
-    <div class="col-3 m-2">
-      <div class="card" style="width: 8rem; height: 65%;">
+    <div class="col-3">
+      <div class="card h-100 text-white bg-transparent" style="width: 6rem;">
         <div class="card-body">
-          <h5 class="card-title" id= "currentW">           
-             <strong>Wind Speed:</strong>           
-          </h5>
-        </div>
-      </div>
+       <h6 class="card-title" id="currentH">
+          Humidity:
+       </h6>
+    </div>
+    </div>
     </div>
 
-    <div class="col-3 m-2">
-      <div class="card" style="width: 8rem; height: 65%;">
-        <div class="card-body"> 
-          <h5 class="card-title" id="currentP">            
-              <strong>Pressure:</strong>          
-          </h5>
-        </div>
-      </div>
+
+    <div class="col-3">
+      <div class="card h-100 text-white bg-transparent" style="width: 6rem;">
+        <div class="card-body">
+          <h6 class="card-title" id= "currentW">           
+            Wind Speed:         
+          </h6>
+    </div>
+    </div>
+    </div>
+
+    <div class="col-3"> 
+      <div class="card h-100 text-white bg-transparent" style="width: 6rem;">
+        <div class="card-body">
+          <h6 id="currentP">            
+              Pressure:          
+          </h6>
+    </div>
+    </div>
     </div>
   </div>
 </div>
+</div>
+
 <div class="week">
     <h5>
         <div class="row justify-content-md-center">
           <div class="col-sm-2.5">
-            <div class="card" style="width: 5rem;">
+            <div class="card text-white bg-transparent border-0" style="width: 5rem;">
               <div class="card-body">
                 <h5 class="card-title">
                   <span class="weekday">
@@ -151,7 +168,7 @@
       </div>
 
   <div class="col-sm-2.5">
-    <div class="card" style="width: 5rem;">
+    <div class="card text-white bg-transparent border-0" style="width: 5rem;">
       <div class="card-body">
         <h5 class="card-title">
           Wed
@@ -169,7 +186,7 @@
   </div>
   
   <div class="col-sm-2.5">
-    <div class="card" style="width: 5rem;">
+    <div class="card text-white bg-transparent border-0" style="width: 5rem;">
       <div class="card-body">
         <h5 class="card-title">
           Thu
@@ -187,7 +204,7 @@
   </div>
 
   <div class="col-sm-2.5">
-    <div class="card" style="width: 5rem;">
+    <div class="card text-white bg-transparent border-0 " style="width: 5rem;">
       <div class="card-body">
         <h5 class="card-title">
           Fri
@@ -205,7 +222,7 @@
   </div>
 
 <div class="col-sm-2.5">
-  <div class="card" style="width: 5rem;">
+  <div class="card text-white bg-transparent border-0" style="width: 5rem;">
     <div class="card-body">
       <h5 class="card-title">
         Sat

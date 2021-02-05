@@ -24,6 +24,22 @@ h1 {
   text-align: center;
   margin: 0;
 }
+
+h2 {
+  font-size: 25px;
+}
+h3 {
+  font-size: 18px;
+  text-align: center;
+}
+
+h4 {
+  color: white;
+  font-size: 15px;
+}
+h6 {
+  font-size: 12px;
+}
 .search-bar {
   margin-top: 20px;
   margin-bottom: 0px;
@@ -43,13 +59,10 @@ h1 {
   text-align: left;
 }
 
-h4 {
-  font-size: 18px;
-  text-align: center;
-}
 .col-5 {
   padding: 0;
 }
+
 .mainTemp {
   position: relative;
   right: -30px;
@@ -61,15 +74,18 @@ h4 {
   left: -3px;
 }
 .details {
-  display: flex;
   position: relative;
-  left: -7px;
-  justify-content: space-around;
+  right: 0px;
+  padding: 0%;
+  display: block;
 }
-
+.currentH {
+  display: block;
+  color: black;
+}
 h5 {
   font-size: 15px;
-  color: #9d9ea3;
+  text-align: center;
 }
 .week {
   margin-bottom: 0px;

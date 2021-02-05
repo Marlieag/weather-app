@@ -21,11 +21,11 @@ humid.innerHTML= `Humidity: ${humidity}%`;
 
 let pressure= response.data.main.pressure;
 let press= document.querySelector("#currentP");
-press.innerHTML=`Pressure: ${pressure}inHg`;
+press.innerHTML=`Pressure: ${pressure}in`;
 
 let windSpeed= Math.round (response.data.wind.speed);
 let wind= document.querySelector("#currentW");
-wind.innerHTML= `Wind Speed: ${windSpeed}mph`;
+wind.innerHTML= `Wind: ${windSpeed}km/h`;
 
  console.log(response);
 }
