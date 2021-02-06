@@ -9,8 +9,8 @@ let temp= Math.round(response.data.main.temp);
 h1.innerHTML=  `${temp}`;
 let descriptionElement= document.querySelector("#description");
 descriptionElement.innerHTML= response.data.weather[0].description;
-let dateElement= document.querySelector("#current-date");
-dateElement.innerHTML= formatDate(response.data.dt * 1000);
+
+
 
 let high= Math.round (response.data.main.temp_max);
 let low= Math.round (response.data.main.temp_min);
@@ -18,6 +18,8 @@ let highTemp= document.querySelector("#high");
 let lowTemp= document.querySelector("#low");
 highTemp.innerHTML= `${high}°`;
 lowTemp.innerHTML=`${low}°`;
+let dateElement= document.querySelector("#today-date");
+dateElement.innerHTML= formatDate(response.data.dt * 1000);
 
 let humidity= response.data.main.humidity;
 let humid= document.querySelector("#currentH");
@@ -75,36 +77,19 @@ locationButton.addEventListener("click", searchLocation);
 
 
 // Today's date
-
-
-
-
-let now= new Date();
-
-let hour= now.getHours();
-if (hour< 10) {
-  hour = `0${hour}`;
-}
-let minutes= now.getMinutes();
-if (minutes< 10) {
-  minutes=`0${minutes}`;
-}
-
-let currentTime= document.querySelector("#current-time");
-currentTime.innerHTML=`${hour}:${minutes}`;
-
-let date= now.getDate();
-let year= now.getFullYear();
-let weekday=[
-  "Mon", 
-  "Tue",
-  "Wed", 
-  "Thu", 
-  "Fri", 
-  "Sat", 
-  "Sun"
+function formatDate (timestamp){
+let date = new Date(timestamp);
+let today = date.getDate();
+let days = [
+  "Sunday",
+  "Monday", 
+  "Tuesday",
+  "Wednesday", 
+  "Thursday", 
+  "Friday", 
+  "Saturday"
 ];
-let day = weekday[now.getDay()];
+let day = days[date.getDay()];
 let months= [
   "Jan",
   "Feb",
@@ -119,9 +104,13 @@ let months= [
   "Nov",
   "Dec"
 ];
-let month= months[now.getMonth()];
-let currentDate= document.querySelector("#today-date");
-currentDate.innerHTML=`${day}, ${month} ${date}, ${year}`;
+let month= months[date.getMonth()];
+return `${day}, ${month} ${today}`;
+}
+
+
+
+
 
 
 // Celsius to Fahrenheit
