@@ -7,6 +7,10 @@ cityElement.innerHTML= response.data.name;
 let h1= document.querySelector("#mainTemp");
 let temp= Math.round(response.data.main.temp);
 h1.innerHTML=  `${temp}`;
+let descriptionElement= document.querySelector("#description");
+descriptionElement.innerHTML= response.data.weather[0].description;
+let dateElement= document.querySelector("#current-date");
+dateElement.innerHTML= formatDate(response.data.dt * 1000);
 
 let high= Math.round (response.data.main.temp_max);
 let low= Math.round (response.data.main.temp_min);
@@ -71,6 +75,9 @@ locationButton.addEventListener("click", searchLocation);
 
 
 // Today's date
+
+
+
 
 let now= new Date();
 
