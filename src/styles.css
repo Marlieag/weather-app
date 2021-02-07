@@ -33,7 +33,7 @@ h2 {
   text-align: center;
   position: relative;
   top: -40px;
-  left: -20px;
+  left: -15px;
 }
 h3 {
   font-size: 18px;
@@ -109,6 +109,25 @@ h6 {
   right: 0px;
   padding: 10px 30px 15px 10px;
   display: block;
+}
+.thermometer {
+  position: relative;
+  left: 20px;
+  font-size: 20px;
+}
+.wind-icon {
+  position: relative;
+  left: 15px;
+  font-size: 20px;
+}
+.humidity-icon {
+  position: relative;
+  left: 20px;
+  font-size: 20px;
+}
+.pressure-icon {
+  position: relative;
+  left: 12px;
 }
 .currentH {
   display: block;
