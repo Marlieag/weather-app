@@ -30,7 +30,6 @@ h2 {
   display: inline-block;
   text-align: center;
   position: relative;
-  left: -5px;
   top: -20px;
 }
 h3 {
@@ -74,16 +73,19 @@ h6 {
 
 .mainTemp {
   position: relative;
-  right: -20px;
-  top: -30px;
+  right: -25px;
+  top: -10px;
 }
 .convert {
   font-size: small;
   position: relative;
-  top: -80px;
-  right: -10px;
+  top: -70px;
+  right: -5px;
 }
-
+.weather-icon {
+  position: relative;
+  top: -25px;
+}
 .weather-description {
   font-size: 20px;
 }
