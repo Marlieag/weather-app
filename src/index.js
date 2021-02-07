@@ -6,7 +6,7 @@ cityElement.innerHTML= response.data.name;
 
 let h1= document.querySelector("#mainTemp");
 let temp= Math.round(response.data.main.temp);
-h1.innerHTML=  `${temp}`;
+h1.innerHTML=  `${temp}°`;
 let descriptionElement= document.querySelector("#description");
 descriptionElement.innerHTML= response.data.weather[0].description;
 document.querySelector("#icon").setAttribute("src", `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
