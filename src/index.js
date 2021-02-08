@@ -36,21 +36,43 @@ let windSpeed= Math.round (response.data.wind.speed);
 let wind= document.querySelector("#currentW");
 wind.innerHTML= `Wind: ${windSpeed}km/h`;
 
- console.log(response);
+ 
 }
 
-function getForcast(){
-  
+function getForcast(response){
+  console.log(response.data.list[0]);
+let forcastElemnent= document.querySelector("#forcast");
+forcastElemnent.innerHTML= 
+`  <div class="col-sm-2.5">
+            <div class="card text-white bg-transparent border-0" style="width: 5rem;">
+              <div class="card-body">
+                <h5 class="card-title">
+                  <span class="weekday">
+                  Tue
+                  </span>
+                  <br/>
+                  12/29
+                </h5>
+                <i class="fas fa-cloud-sun"></i>
+                <p class="card-text">
+                  37°
+                  <br/>
+                  18°
+                </p>
+          </div>
+        </div>
+      </div>`;
+
 }
 
 // Search engine
 function searchCity(city){
   let key="752caa80f650691fadd3574c96f9f105";
   let url=`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${key}&units=metric`;
-  axios.get(`${url}`).then(currentWeather);
+  axios.get(url).then(currentWeather);
 
-  url=`api.openweathermap.org/data/2.5/forecast?id=${city}&appid=${key}&units=metric`;
-  axios.get(`${url}`).then(getForcast);
+  url=`api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${key}&units=metric`;
+  axios.get(url).then(getForcast);
 }
 
 function search(event) {
