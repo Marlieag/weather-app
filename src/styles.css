@@ -85,6 +85,13 @@ h6 {
   top: -70px;
   right: -5px;
 }
+.active {
+  color: inherit;
+  cursor: default;
+}
+.active:hover {
+  text-decoration: none;
+}
 .weather-icon {
   position: relative;
   top: -42px;

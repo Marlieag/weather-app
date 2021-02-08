@@ -6,11 +6,12 @@ cityElement.innerHTML= response.data.name;
 
 let h1= document.querySelector("#mainTemp");
 let temp= Math.round(response.data.main.temp);
-h1.innerHTML=  `${temp}°`;
+h1.innerHTML=  `${temp}`;
 let descriptionElement= document.querySelector("#description");
 descriptionElement.innerHTML= response.data.weather[0].description;
 document.querySelector("#icon").setAttribute("src", `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
 
+celsiusTemperature = response.data.main.temp;
 
 let high= Math.round (response.data.main.temp_max);
 let low= Math.round (response.data.main.temp_min);
@@ -129,6 +130,28 @@ function formatHours(timestamp) {
 
 
 // Celsius to Fahrenheit
+function displayFahrenheit(event){
+  event.preventDefault();
+  let tempElement=document.querySelector("#mainTemp");
+  convertFahrenheit.classList.add("active");
+  convertCelsius.classList.remove("active");
+  let fahrenheitTemp=(celsiusTemperature * 9) / 5 + 32;
+  tempElement.innerHTML= Math.round(fahrenheitTemp);
+}
 
+function displayCelsius(event){
+event.preventDefault();
+convertCelsius.classList.add("active");
+convertFahrenheit.classList.remove("active");
 
+let tempElement=document.querySelector("#mainTemp");
+tempElement.innerHTML= Math.round(celsiusTemperature);
+}
+
+let celsiusTemperature= null;
+let convertFahrenheit = document.querySelector("#f-convert");
+convertFahrenheit.addEventListener("click", displayFahrenheit);
+
+let convertCelsius = document.querySelector("#c-convert");
+convertCelsius.addEventListener("click", displayCelsius);
 
