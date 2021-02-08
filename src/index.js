@@ -39,7 +39,7 @@ wind.innerHTML= `Wind: ${windSpeed}km/h`;
  
 }
 
-function getForcast(response){
+function getForecast(response){
   console.log(response.data.list[0]);
 let forcastElemnent= document.querySelector("#forcast");
 forcastElemnent.innerHTML= 
@@ -71,8 +71,8 @@ function searchCity(city){
   let url=`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${key}&units=metric`;
   axios.get(url).then(currentWeather);
 
-  url=`api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${key}&units=metric`;
-  axios.get(url).then(getForcast);
+  url=`https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${key}&units=metric`;
+  axios.get(url).then(getForecast);
 }
 
 function search(event) {
