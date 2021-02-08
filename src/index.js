@@ -39,12 +39,18 @@ wind.innerHTML= `Wind: ${windSpeed}km/h`;
  console.log(response);
 }
 
+function getForcast(){
+  
+}
 
 // Search engine
 function searchCity(city){
   let key="752caa80f650691fadd3574c96f9f105";
   let url=`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${key}&units=metric`;
   axios.get(`${url}`).then(currentWeather);
+
+  url=`api.openweathermap.org/data/2.5/forecast?id=${city}&appid=${key}&units=metric`;
+  axios.get(`${url}`).then(getForcast);
 }
 
 function search(event) {
