@@ -33,7 +33,7 @@ h2 {
   text-align: center;
   position: relative;
   top: -40px;
-  left: -15px;
+  left: 15px;
 }
 h3 {
   font-size: 18px;
@@ -51,6 +51,17 @@ h6 {
   margin-top: 20px;
   margin-bottom: 0px;
   padding: 20px 0px 10px 10px;
+}
+.col {
+  padding: 0%;
+}
+.col .dayTemp {
+  position: relative;
+  left: 20px;
+}
+.col .dayTemp2 {
+  position: relative;
+  right: 20px;
 }
 .col-8 {
   padding: 0px 30px 0px 20px;
@@ -76,14 +87,14 @@ h6 {
 
 .mainTemp {
   position: relative;
-  right: -25px;
+  right: -10px;
   top: -20px;
 }
 .convert {
   font-size: small;
   position: relative;
   top: -70px;
-  right: -5px;
+  right: 10px;
 }
 .active {
   color: inherit;
@@ -95,7 +106,7 @@ h6 {
 .weather-icon {
   position: relative;
   top: -42px;
-  left: -20px;
+  left: 20px;
 }
 
 .label {
