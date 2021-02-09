@@ -43,32 +43,35 @@ wind.innerHTML= `Wind: ${windSpeed}km/h`;
 }
 
 function getForecast(response){
+  console.log(response);
 let forcastElemnent= document.querySelector("#forcast");
 forcastElemnent.innerHTML=null;
 let nextFiveForecast= null;
 
 
-for (let index = 7 ;index < Array.length; index++) {
-    nextFiveForecast = response.data.list[index.splice(8)];
-  
+for (let index = 1 ;index < 6; index++) {
+    nextFiveForecast = response.data.daily[index];
+    forecastHour= response.data.hourly[index].temp;
 forcastElemnent.innerHTML += 
 `  <div class="col-sm-2.5">
             <div class="card text-white bg-transparent border-0" style="width: 5rem;">
               <div class="card-body">
                 <h5 class="card-title">
                   <span class="weekday">
-                  ${formatDay} 
+                  ${formatDay(nextFiveForecast.dt*1000)} 
                   </span>
                   <br/>
-                  ${futureDate}
+                  ${futureDate(nextFiveForecast.dt *1000)}
                 </h5>
                     <img
                   src="http://openweathermap.org/img/wn/${nextFiveForecast.weather[0].icon}@2x.png" width="35px
                   />
                 <p class="card-text">
                   <strong>
-                  ${Math.round(nextFiveForecast.main.temp)}°
+                 ${Math.round(nextFiveForecast.temp.max)}°
                   </strong>
+                  <br/>
+                  ${Math.round(nextFiveForecast.temp.max)}° 
                 </p>
           </div>
         </div>
@@ -83,9 +86,6 @@ function searchCity(city){
   let key="752caa80f650691fadd3574c96f9f105";
   let url=`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${key}&units=metric`;
   axios.get(url).then(currentWeather);
-
-  url=`https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${key}&units=metric`;
-  axios.get(url).then(getForecast);
 }
 
 function search(event) {
@@ -97,7 +97,7 @@ function search(event) {
 let searchInput= document.querySelector("#search-bar");
 searchInput.addEventListener("submit", search);
 
-searchCity("Denver");
+
 
 //Location
 
@@ -105,7 +105,9 @@ function getLocation(position){
   let key="752caa80f650691fadd3574c96f9f105";
   let url=`https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${key}&units=metric`;
   axios.get(`${url}`).then(currentWeather);
-
+  
+  url=`https://api.openweathermap.org/data/2.5/onecall?lat=${position.coords.latitude}&lon=${position.coords.longitude}&exclude=current,minutely,alerts&appid=${key}&units=metric`;
+  axios.get(url).then(getForecast);
 }
 function searchLocation(event){
   event.preventDefault();
@@ -211,3 +213,4 @@ convertFahrenheit.addEventListener("click", displayFahrenheit);
 let convertCelsius = document.querySelector("#c-convert");
 convertCelsius.addEventListener("click", displayCelsius);
 
+searchCity("Denver");
