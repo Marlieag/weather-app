@@ -1,6 +1,12 @@
 .container {
   color: #ffffff;
-  background-image: linear-gradient(60deg, #96deda 0%, #50c9c3 100%);
+  background-image: linear-gradient(
+    180deg,
+    #96deda 10%,
+    #5eaaa8 100%,
+    #487e95 10%,
+    #276678 10%
+  );
   background-blend-mode: normal, lighten, soft-light;
   border-radius: 20px;
   margin: auto 20px 0px;
