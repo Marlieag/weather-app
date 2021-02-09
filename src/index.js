@@ -23,7 +23,10 @@ let dateElement= document.querySelector("#today-date");
 dateElement.innerHTML= formatDate(response.data.dt * 1000);
 let timeElement= document.querySelector("#current-time");
 timeElement.innerHTML= formatHours(response.data.dt * 1000);
-
+ 
+let feelsLike= Math.round(response.data.main.feels_like);
+let feels= document.querySelector("#feels");
+feels.innerHTML=`Feels Like: ${feelsLike}`;
 let humidity= response.data.main.humidity;
 let humid= document.querySelector("#currentH");
 humid.innerHTML= `Humidity: ${humidity}%`;
@@ -36,11 +39,10 @@ let windSpeed= Math.round (response.data.wind.speed);
 let wind= document.querySelector("#currentW");
 wind.innerHTML= `Wind: ${windSpeed}km/h`;
 
- 
+ console.log(response);
 }
 
 function getForecast(response){
-  console.log(response.data);
 let forcastElemnent= document.querySelector("#forcast");
 forcastElemnent.innerHTML=null;
 let nextFiveForecast= null;
@@ -55,10 +57,10 @@ forcastElemnent.innerHTML +=
               <div class="card-body">
                 <h5 class="card-title">
                   <span class="weekday">
-                  ${formatDay(nextFiveForecast.dt*1000)} 
+                  ${formatDay(nextFiveForecast.dt * 1000)} 
                   </span>
                   <br/>
-                  ${futureDate(nextFiveForecast.dt*1000)}
+                  ${futureDate(nextFiveForecast.dt * 1000)}
                 </h5>
                     <img
                   src="http://openweathermap.org/img/wn/${nextFiveForecast.weather[0].icon}@2x.png" width="35px
