@@ -26,11 +26,11 @@ timeElement.innerHTML= formatHours(response.data.dt * 1000);
  
 let feelsLike= Math.round(response.data.main.feels_like);
 let feels= document.querySelector("#feels");
+feels.innerHTML=`Feels Like: ${feelsLike}°`;
 let humidity= response.data.main.humidity;
 let humid= document.querySelector("#currentH");
 humid.innerHTML= `Humidity: ${humidity}%`;
 
-feels.innerHTML=`Feels Like: ${feelsLike}°`;
 let pressure= response.data.main.pressure;
 let press= document.querySelector("#currentP");
 press.innerHTML=`Pressure: ${pressure}in`;
@@ -49,8 +49,8 @@ forcastElemnent.innerHTML=null;
 let nextFiveForecast= null;
 
 
-nextFiveForecast = response.data.daily[index];
 for (let index = 1 ;index < 6; index++) {
+    nextFiveForecast = response.data.daily[index];
     forecastHour= response.data.hourly[index].temp;
 forcastElemnent.innerHTML += 
 `  <div class="col-sm-2.5">
@@ -70,10 +70,10 @@ forcastElemnent.innerHTML +=
                   <strong>
                  ${Math.round(nextFiveForecast.temp.max)}°
                   </strong>
-                  </div>
                   <br/>
                   ${Math.round(nextFiveForecast.temp.min)}° 
                 </p>
+          </div>
         </div>
       </div>`;
 
