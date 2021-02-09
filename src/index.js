@@ -26,18 +26,18 @@ timeElement.innerHTML= formatHours(response.data.dt * 1000);
  
 let feelsLike= Math.round(response.data.main.feels_like);
 let feels= document.querySelector("#feels");
-feels.innerHTML=`Feels Like: ${feelsLike}°`;
+feels.innerHTML=`${feelsLike}°`;
 let humidity= response.data.main.humidity;
 let humid= document.querySelector("#currentH");
-humid.innerHTML= `Humidity: ${humidity}%`;
+humid.innerHTML= `${humidity}%`;
 
 let pressure= response.data.main.pressure;
 let press= document.querySelector("#currentP");
-press.innerHTML=`Pressure: ${pressure}in`;
+press.innerHTML=` ${pressure}in`;
 
 let windSpeed= Math.round (response.data.wind.speed);
 let wind= document.querySelector("#currentW");
-wind.innerHTML= `Wind: ${windSpeed}km/h`;
+wind.innerHTML= `${windSpeed} km/h`;
 
  console.log(response);
 }
@@ -63,7 +63,7 @@ forcastElemnent.innerHTML +=
                   ${futureDate(nextFiveForecast.dt * 1000)}
                 </h5>
                     <img
-                  src="http://openweathermap.org/img/wn/${nextFiveForecast.weather[0].icon}@2x.png" width="35px
+                  src="http://openweathermap.org/img/wn/${nextFiveForecast.weather[0].icon}@2x.png" width="45px"
                   />
                 <p class="card-text">
                   <strong>
