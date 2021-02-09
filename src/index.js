@@ -40,20 +40,29 @@ wind.innerHTML= `Wind: ${windSpeed}km/h`;
 }
 
 function getForecast(response){
-  console.log(response.data.list[0]);
+  console.log(response.data);
 let forcastElemnent= document.querySelector("#forcast");
-forcastElemnent.innerHTML= 
+forcastElemnent.innerHTML=null;
+let nextFiveForecast= null;
+
+
+for (let index = 0 ;index < 6; index++) {
+    nextFiveForecast = response.data.list[index*8];
+  
+forcastElemnent.innerHTML += 
 `  <div class="col-sm-2.5">
             <div class="card text-white bg-transparent border-0" style="width: 5rem;">
               <div class="card-body">
                 <h5 class="card-title">
                   <span class="weekday">
-                  Tue
+                  ${formatDay(nextFiveForecast.dt*1000)} 
                   </span>
                   <br/>
-                  12/29
+                  ${futureDate(nextFiveForecast.dt*1000)}
                 </h5>
-                <i class="fas fa-cloud-sun"></i>
+                    <img
+                  src="http://openweathermap.org/img/wn/${nextFiveForecast.weather[0].icon}@2x.png" width="35px
+                  />
                 <p class="card-text">
                   37°
                   <br/>
@@ -62,6 +71,8 @@ forcastElemnent.innerHTML=
           </div>
         </div>
       </div>`;
+
+}
 
 }
 
@@ -153,7 +164,22 @@ function formatHours(timestamp) {
 
   return `${hours}:${minutes}`;
 }
+function formatDay(timestamp) {
+  let dayForecast = new Date(timestamp);
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
+  let day = days[dayForecast.getDay()];
+
+  return `${day}`;
+}
+function futureDate(timestamp){
+  let forecastDate = new Date(timestamp);
+  let months= ["01","02","03","04","05","06","07","08","09","10","11","12"]
+
+  let month= months[forecastDate.getMonth()];
+  let futureDay = forecastDate.getDate();
+  return `${month}/${futureDay}`;
+}
 
 
 
