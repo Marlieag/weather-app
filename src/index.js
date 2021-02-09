@@ -51,17 +51,16 @@ let nextFiveForecast= null;
 
 for (let index = 1 ;index < 6; index++) {
     nextFiveForecast = response.data.daily[index];
-    forecastHour= response.data.hourly[index].temp;
 forcastElemnent.innerHTML += 
 `  <div class="col-sm-2.5">
             <div class="card text-white bg-transparent border-0" style="width: 5rem;">
               <div class="card-body">
                 <h5 class="card-title">
                   <span class="weekday">
-                  ${formatDay(nextFiveForecast.dt)} 
+                  ${formatDay(nextFiveForecast.dt * 1000)} 
                   </span>
                   <br/>
-                  ${futureDate(nextFiveForecast.dt)}
+                  ${futureDate(nextFiveForecast.dt * 1000)}
                 </h5>
                     <img
                   src="http://openweathermap.org/img/wn/${nextFiveForecast.weather[0].icon}@2x.png" width="35px
