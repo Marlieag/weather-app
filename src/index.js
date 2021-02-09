@@ -12,7 +12,7 @@ descriptionElement.innerHTML= response.data.weather[0].description;
 document.querySelector("#icon").setAttribute("src", `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
 
 celsiusTemperature = response.data.main.temp;
-
+fiveDayForecast (response.data.coord);
 let high= Math.round (response.data.main.temp_max);
 let low= Math.round (response.data.main.temp_min);
 let highTemp= document.querySelector("#high");
@@ -98,6 +98,13 @@ let searchInput= document.querySelector("#search-bar");
 searchInput.addEventListener("submit", search);
 
 
+  function fiveDayForecast (position) {
+  let lon = position.lon;
+  let lat = position.lat;
+  let key = "6000bf93e246aa260b6c47805cd04cb3"
+  url=`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=current,minutely,alerts&appid=${key}&units=metric`;
+  axios.get(url).then(getForecast);
+}
 
 //Location
 
@@ -105,9 +112,6 @@ function getLocation(position){
   let key="752caa80f650691fadd3574c96f9f105";
   let url=`https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${key}&units=metric`;
   axios.get(`${url}`).then(currentWeather);
-  
-  url=`https://api.openweathermap.org/data/2.5/onecall?lat=${position.coords.latitude}&lon=${position.coords.longitude}&exclude=current,minutely,alerts&appid=${key}&units=metric`;
-  axios.get(url).then(getForecast);
 }
 function searchLocation(event){
   event.preventDefault();
