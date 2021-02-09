@@ -64,9 +64,9 @@ forcastElemnent.innerHTML +=
                   src="http://openweathermap.org/img/wn/${nextFiveForecast.weather[0].icon}@2x.png" width="35px
                   />
                 <p class="card-text">
-                  37°
-                  <br/>
-                  18°
+                  <strong>
+                  ${Math.round(nextFiveForecast.main.temp)}°
+                  </strong>
                 </p>
           </div>
         </div>
